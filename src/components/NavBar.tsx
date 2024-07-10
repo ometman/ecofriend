@@ -6,7 +6,7 @@ const NavBar: React.FC = () => {
     return (
         <nav className={styles.nav}>
             <Link href='/'>Home</Link>
-            <Link href='/product'>Products</Link>
+            <Link href='/products'>Products</Link>
             <Link href='/carbon-footprint'>Carbon Footprint</Link>
             <Link href='/tips'>Tips</Link>
             <Link href='/community'>Community</Link>

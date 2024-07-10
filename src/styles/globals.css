@@ -1,4 +1,4 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -30,4 +30,21 @@ body {
   .text-balance {
     text-wrap: balance;
   }
+} */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  margin-right: 15px;
+  text-decoration: none;
+  color: #4CAF50;
+}
+
+nav {
+  margin-bottom: 20px;
 }

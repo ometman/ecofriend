@@ -1,0 +1,14 @@
+.nav {
+    background-color: #4CAF50;
+    padding: 10px;
+  }
+  
+  .nav a {
+    color: white;
+    font-weight: bold;
+  }
+  
+  .nav a:hover {
+    text-decoration: underline;
+  }
+  

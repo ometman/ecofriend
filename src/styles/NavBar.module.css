@@ -1,5 +1,10 @@
 .nav {
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #4CAF50;
+    margin: 0, auto;
     padding: 10px;
   }
   
@@ -11,4 +16,6 @@
 .nav a:hover {
   text-decoration: underline;
 }
+
+
   

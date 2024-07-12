@@ -1,14 +1,27 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from '../styles/Products.module.css';
 
 // Add local array of products
-const products = [
-    { id: 1, name: 'Eco-Friendly Toothbrush', description: 'A bamboo toothbrush with biodegradable bristles.' },
-    { id: 2, name: 'Reusable Shopping Bags', description: 'Set of 5 reusable shopping bags made from recycled materials.' },
-    { id: 3, name: 'Solar Powered Charger', description: 'A portable solar charger for your electronic devices.' }
-  ];
+// const products = [
+//     { id: 1, name: 'Eco-Friendly Toothbrush', description: 'A bamboo toothbrush with biodegradable bristles.' },
+//     { id: 2, name: 'Reusable Shopping Bags', description: 'Set of 5 reusable shopping bags made from recycled materials.' },
+//     { id: 3, name: 'Solar Powered Charger', description: 'A portable solar charger for your electronic devices.' }
+//   ];
 
 const Products: React.FC = () => {
+    const [products, setProducts]  = useState([])
+    useEffect(() => {
+        const getProducts = async () => {
+            try {
+                const response = await fetch('/api/products');
+                const data = await response.json();
+                setProducts(data);
+            }catch(error) {
+                console.error('Error fetching products', error);
+            }
+        }
+        getProducts();
+    }, []);
     return (
         <div className={styles.container}>
             <h1>Eco-Friendly Products</h1>

@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { fetchProducts } from '../services/productService';
 
-const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+const productsHandler = async (req: NextApiRequest, res: NextApiResponse) => {
     try {
         const products = await fetchProducts();
         res.status(200).json(products)
@@ -10,4 +10,4 @@ const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     }
 }
 
-export default  handler;
+export default  productsHandler;

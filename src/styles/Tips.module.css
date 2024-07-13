@@ -1,0 +1,71 @@
+/* styles/Tips.module.css */
+.container {
+    padding: 16px;
+}
+
+.header {
+font-size: 24px;
+font-weight: bold;
+margin-bottom: 16px;
+}
+
+.searchBar {
+height: 40px;
+border: 1px solid #ccc;
+padding: 8px;
+border-radius: 4px;
+margin-bottom: 16px;
+width: 100%;
+}
+
+.categoryContainer {
+display: flex;
+gap: 8px;
+margin-bottom: 16px;
+}
+
+.categoryButton {
+padding: 8px 16px;
+background-color: #f0f0f0;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+.selectedCategory {
+background-color: #cceeff;
+}
+
+.tipList {
+display: flex;
+flex-direction: column;
+gap: 16px;
+}
+
+.tipItem {
+padding: 16px;
+border: 1px solid #ccc;
+border-radius: 4px;
+cursor: pointer;
+}
+
+.tipTitle {
+font-size: 18px;
+font-weight: bold;
+}
+
+.tipDescription {
+font-size: 14px;
+color: #555;
+}
+
+.title {
+font-size: 24px;
+font-weight: bold;
+margin-bottom: 16px;
+}
+
+.description {
+font-size: 16px;
+}
+  

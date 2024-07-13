@@ -12,8 +12,8 @@ interface Tip {
 
 // Dummy data for tips
 const tipsData: Tip[] = [
-  { id: '1', title: 'Save Energy at Home', description: 'Use energy-efficient appliances...', category: 'Energy' },
-  { id: '2', title: 'Reduce Water Waste', description: 'Fix leaks and install low-flow fixtures...', category: 'Water' },
+  { id: '1', title: 'TipDetail 1 Save Energy at Home', description: 'Use energy-efficient appliances...', category: 'Energy' },
+  { id: '2', title: 'TipDetail 2 Reduce Water Waste', description: 'Fix leaks and install low-flow fixtures...', category: 'Water' },
   // we can add more tips here
 ];
 

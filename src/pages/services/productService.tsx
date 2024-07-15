@@ -1,15 +1,5 @@
 import axios from 'axios';
-import Products from '../products';
-
-interface Product {
-    id: string;
-    name: string;
-    brand: string;
-    category: string;
-    description: string;
-    ecoRating: number;
-    imageUrl?: string; // Optional property for product images
-}
+import { Product } from './productData';
 
 const API_URL = 'https://open.sustainableapi.com/products';
 

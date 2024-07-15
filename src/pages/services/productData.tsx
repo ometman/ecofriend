@@ -1,3 +1,5 @@
+import { v4 as uuidv4 } from "uuid";
+
 export interface Product {
     id: string;
     name: string;
@@ -10,7 +12,7 @@ export interface Product {
 
 export const mockProducts: Product[] = [
     {
-        id: '1',
+        id: uuidv4(),
         name: 'Eco-Friendly Laundry Detergent',
         brand: 'EcoBrand',
         category: 'Laundry',
@@ -19,7 +21,7 @@ export const mockProducts: Product[] = [
         imageUrl: 'https://example.com/images/laundry-detergent.jpg'
     },
     {
-        id: '2',
+        id: uuidv4(),
         name: 'Reusable Bamboo Paper Towels',
         brand: 'GreenEarth',
         category: 'Kitchen',
@@ -28,7 +30,7 @@ export const mockProducts: Product[] = [
         imageUrl: 'https://example.com/images/bamboo-towels.jpg'
     },
     {
-        id: '3',
+        id: uuidv4(),
         name: 'Natural All-Purpose Cleaner',
         brand: 'NatureClean',
         category: 'Cleaning',

@@ -5,6 +5,7 @@ import styles from '../styles/Products.module.css';
 
 const Products: React.FC = () => {
     const [products, setProducts]  = useState<Product[]>([])
+    const [loading, setLoading ] = useState<boolean>(false)
     const [error, setError] = useState<string | null>(null);
     
     useEffect(() => {
@@ -22,15 +23,22 @@ const Products: React.FC = () => {
                 } else {
                     setError('An unknown error occured')
                 }
+            } finally {
+                setLoading(false)
             }
         };
 
         fetchProducts();
     }, []);
 
+    if (loading) {
+        return <div> ...loading </div>;
+    }
+    
     if (error) {
         return <div>Error: {error}</div>;
     }
+   
     return (
         <div className={styles.container}>
             <h1>Eco-Friendly Products</h1>

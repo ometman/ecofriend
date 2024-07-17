@@ -17,7 +17,11 @@ const Products: React.FC = () => {
                 const data = await response.json();
                 setProducts(data);
             } catch (error) {
-                setError(error.message);
+                if (error instanceof Error ) {
+                    setError(error.message) 
+                } else {
+                    setError('An unknown error occured')
+                }
             }
         };
 

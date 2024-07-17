@@ -1,22 +1,32 @@
 import React, { useEffect, useState } from 'react';
-import { Product } from './services/productData'
+import { Product } from './services/productData';
+
 import styles from '../styles/Products.module.css';
 
 const Products: React.FC = () => {
     const [products, setProducts]  = useState<Product[]>([])
+    const [error, setError] = useState<string | null>(null);
+    
     useEffect(() => {
-        const getProducts = async () => {
+        const fetchProducts = async () => {
             try {
                 const response = await fetch('/api/products');
+                if (!response.ok) {
+                    throw new Error('Failed to fetch products');
+                }
                 const data = await response.json();
                 setProducts(data);
-            } catch(error) {
-              console.error('Error fetching products', error);
+            } catch (error) {
+                setError(error.message);
             }
-        }
-        getProducts();
+        };
+
+        fetchProducts();
     }, []);
 
+    if (error) {
+        return <div>Error: {error}</div>;
+    }
     return (
         <div className={styles.container}>
             <h1>Eco-Friendly Products</h1>

@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 import { Product } from '../services/productData';
+import styles from '../../styles/ProductDetail.module.css'
 
 const ProductDetail: React.FC = () => {
     const router = useRouter();

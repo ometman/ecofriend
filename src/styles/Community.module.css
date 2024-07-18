@@ -1,9 +1,9 @@
 /* src/styles/Community.module.css */
 .container {
-    padding: 20px;
+    padding: 2rem;
     max-width: 800px;
     margin: 0 auto;
-}
+  }
 
 .h1 {
 text-align: center;

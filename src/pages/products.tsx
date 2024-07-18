@@ -56,8 +56,11 @@ const Products: React.FC = () => {
                             <p><strong>Description: </strong>{product.description}</p>
                             <p><strong>ecoRating: </strong>{product.ecoRating}</p>
                             <p>{product.imageUrl && (
-                                <img src={product.imageUrl} alt={product.name} className="styles.productImage" />
-                            )}
+                                <img 
+                                src={product.imageUrl} 
+                                alt={product.name} 
+                                className={styles.productImage} />
+                                )}
                             </p>
                         </li>
                     </Link>

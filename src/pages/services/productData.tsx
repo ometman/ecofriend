@@ -18,7 +18,7 @@ export const mockProducts: Product[] = [
         category: 'Laundry',
         description: 'A biodegradable detergent made from natural ingredients.',
         ecoRating: 5,
-        imageUrl: 'https://example.com/images/laundry-detergent.jpg'
+        imageUrl: 'https://cdn.pixabay.com/photo/2016/11/18/17/46/house-1836070_1280.jpg'
     },
     {
         id: uuidv4(),

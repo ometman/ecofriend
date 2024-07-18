@@ -12,10 +12,6 @@
 .productList {
   list-style-type: none;
   padding: 0;
-  /* display: flex; */
-  /* flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center; */
 }
 
 .productItem {
@@ -37,7 +33,9 @@
 }
 
 .productImage {
-  max-width: 100%;
   margin-top: 0.5rem;
-  border-radius: 8px;
+  border-radius: 8px; 
+  max-width: 100%;
+  height: auto;
+  display: block;
 }

@@ -1,28 +1,41 @@
-/* src/styles/Products.module.css */
 .container {
   padding: 2rem;
   max-width: 800px;
   margin: 0 auto;
 }
-  
+
 .h1 {
   text-align: center;
   margin-bottom: 2rem;
 }
 
 .productList {
-  list-style: none;
+  list-style-type: none;
   padding: 0;
 }
 
 .productItem {
-  border: 1px solid #ccc;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   padding: 1rem;
   margin-bottom: 1rem;
-  border-radius: 5px;
 }
 
 .productItem h2 {
   margin: 0 0 0.5rem 0;
+  margin-top: 0;
 }
-  
+
+.productItem p {
+  margin: 0.5rem 0;
+}
+
+.productImage {
+  margin-top: 0.5rem;
+  border-radius: 8px; 
+  max-width: 100%;
+  height: auto;
+  display: block;
+}

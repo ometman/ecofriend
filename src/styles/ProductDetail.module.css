@@ -1,0 +1,23 @@
+/* styles/ProductDetail.module.css */
+.container {
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.productImage {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.p {
+    text-align: center;
+    margin: 0.5rem 0;
+}

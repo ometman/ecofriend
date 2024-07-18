@@ -1,3 +1,4 @@
+
 An app that helps users adopt sustainable practices in their daily lives. It provides tips, resources, and product recommendations to reduce environmental impact.
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
@@ -38,6 +39,7 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
 
+
  <!-- Community Page Importance -->
 
  1. Engagement and Motivation
@@ -59,3 +61,7 @@ Community Challenges: List of current challenges, their descriptions, and partic
 Discussions: A forum-like section where users can post questions, share stories, and engage in conversations.
 User Tips: A feed or list of practical tips shared by users, with the ability to upvote or comment on tips.
 Events: Calendar or list of upcoming events related to sustainability, with details and signup options.
+=======
+=======
+## Ecofriend: A Next.js app
+

@@ -1,36 +1,28 @@
-// import axios from 'axios}
-import { PrismaClient, Product as PrismaProduct } from '@prisma/client';
-// import { v4 as uuidv4 } from "uuid";
-import { Product, mockProducts } from './productData';
-// import products from '../api/products';
+// read/write data in database
 
-// read all products (with external data api if available)
-// const API_URL = 'https://open.sustainableapi.com/products';
+import { PrismaClient, Product as PrismaProduct } from '@prisma/client';
+type ProductCreateInput = Omit<PrismaProduct, 'id'>;
 
 const prisma = new PrismaClient();
-type ProductCreateInput = Omit<PrismaProduct, 'id'>;
-// read all products (with mock data)
-// export const getProducts = (): Product[] => mockProducts;
 
 export const getProducts = async () => {
     try {
         return await prisma.product.findMany();
-    } catch(error) {
+    } catch (error) {
         console.error('Error fetching products:', error);
-        throw error;
+        throw new Error('Unable to fetch products');
     }
 }
 
-// read specific product
 export const getProductById = async (id: string) => {
     try {
         return await prisma.product.findUnique({
             where: { id },
         });
-    }catch(error) {
-        console.error('Error fetching product:', error);
-        throw error;
-    } 
+    } catch (error) {
+        console.error('Error fetching product by ID:', error);
+        throw new Error('Unable to fetch product');
+    }
 }
 
 export const createProduct = async (product: ProductCreateInput) => {
@@ -39,31 +31,31 @@ export const createProduct = async (product: ProductCreateInput) => {
             data: product,
         });
     } catch (error) {
-        console.error("Error creating product:", error)
-        throw error;
+        console.error('Error creating product:', error);
+        throw new Error('Unable to create product');
     }
 }
 
-export const updateProduct = async (id: string, updatedProduct: Partial<Product>) => {
+export const updateProduct = async (id: string, updatedProduct: ProductCreateInput) => {
     try {
         return await prisma.product.update({
             where: { id },
             data: updatedProduct,
         });
-    } catch(error) {
-        console.error("Error updating product");
-        throw error;
+    } catch (error) {
+        console.error('Error updating product:', error);
+        throw new Error('Unable to update product');
     }
-};
+}
 
 export const deleteProduct = async (id: string) => {
     try {
-         await prisma.product.delete({
+        await prisma.product.delete({
             where: { id },
         });
         return true;
-    } catch(error) {
-        console.error("Error updating product");
+    } catch (error) {
+        console.error('Error deleting product:', error);
         return false;
     }
 }

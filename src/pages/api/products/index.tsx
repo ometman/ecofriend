@@ -4,8 +4,8 @@ import { getProducts, createProduct } from '../../services/productService';
 export default async (req: NextApiRequest, res: NextApiResponse) => {
     if (req.method === 'GET') {
         try {
-            const products = getProducts();
-            console.log(products)
+            const products = await getProducts();
+            console.log("products")
             res.status(200).json(products);
         } catch (error) {
             res.status(500).json({ error: 'Failed to fetch products' });

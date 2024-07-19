@@ -12,11 +12,15 @@ const Products: React.FC = () => {
         const fetchProducts = async () => {
             try {
                 const response = await fetch('/api/products');
-                if (!response.ok) {
-                    throw new Error('Failed to fetch products');
-                }
                 const data = await response.json();
-                setProducts(data);
+                console.log('Fetched products:', data); // Log the fetched data
+                if (Array.isArray(data)) {
+                    setProducts(data);
+                } else if (data && Array.isArray(data.products)) {
+                    setProducts(data.products);
+                } else {
+                    setError('Unexpected response format');
+                }
             } catch (error) {
                 if (error instanceof Error ) {
                     setError(error.message) 

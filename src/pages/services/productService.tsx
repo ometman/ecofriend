@@ -1,13 +1,20 @@
-// read/write data in database
+// services/productService.ts
+import { Product as PrismaProduct } from '@prisma/client';
+import prisma from '../../lib/prisma';
 
-import { PrismaClient, Product as PrismaProduct } from '@prisma/client';
 type ProductCreateInput = Omit<PrismaProduct, 'id'>;
 
-const prisma = new PrismaClient();
-
-export const getProducts = async () => {
+export const getProducts = async (page: number, limit: number) => {
+    const offset = (page - 1) * limit;
     try {
-        return await prisma.product.findMany();
+        const [products, totalcount] = await prisma.$transaction([
+            prisma.product.findMany({
+                skip: offset,
+                take: limit,
+            }),
+            prisma.product.count(),
+        ]);
+        return { products, totalcount };
     } catch (error) {
         console.error('Error fetching products:', error);
         throw new Error('Unable to fetch products');

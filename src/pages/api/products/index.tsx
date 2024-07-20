@@ -1,11 +1,16 @@
+// pages/api/products/index.ts
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { getProducts, createProduct } from '../../services/productService';
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
+    const { page, limit } = req.query;
+    const pageNumber = parseInt(page as string, 10) || 1;
+    const limitNumber = parseInt(limit as string, 10) || 3;
+
     if (req.method === 'GET') {
         try {
-            const products = await getProducts();
-            res.status(200).json(products);
+            const { products, totalcount } = await getProducts(pageNumber, limitNumber);
+            res.status(200).json({ products, totalcount });
         } catch (error) {
             res.status(500).json({ error: 'Failed to fetch products' });
         }
@@ -15,13 +20,12 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
             if (!name || !brand || !category || !description || !ecoRating) {
                 res.status(400).json({ error: 'Missing required fields' });
                 return;
-            } else {
-                const newProduct = await createProduct({ name, brand, category, description, ecoRating, imageUrl });
-                res.status(201).json(newProduct);
             }
-        } catch(error) {
-            res.status(500).json({ error: 'Failed to fetch products' });
-        }        
+            const newProduct = await createProduct({ name, brand, category, description, ecoRating, imageUrl });
+            res.status(201).json(newProduct);
+        } catch (error) {
+            res.status(500).json({ error: 'Failed to create product' });
+        }
     } else {
         res.status(405).json({ error: 'Method not allowed' });
     }

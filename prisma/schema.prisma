@@ -23,3 +23,63 @@ model Product {
   imageUrl    String
 }
 
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  name      String?
+  posts     Post[]
+  tips      Tip[]
+  likes     Like[]
+  comments  Comment[]
+  shares    Share[]
+}
+
+model Post {
+  id        String   @id @default(uuid())
+  title     String
+  content   String
+  authorId  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  author    User     @relation(fields: [authorId], references: [id])
+}
+
+model Tip {
+  id         String    @id @default(uuid())
+  userId     String
+  content    String?
+  videoUrl   String?
+  createdAt  DateTime  @default(now())
+  user       User      @relation(fields: [userId], references: [id])
+  likes      Like[]
+  comments   Comment[]
+  shares     Share[]
+}
+
+model Like {
+  id        String    @id @default(uuid())
+  userId    String
+  tipId     String
+  tip       Tip       @relation(fields: [tipId], references: [id])
+  user      User      @relation(fields: [userId], references: [id])
+  createdAt DateTime  @default(now())
+}
+
+model Comment {
+  id        String    @id @default(uuid())
+  userId    String
+  tipId     String
+  content   String
+  tip       Tip       @relation(fields: [tipId], references: [id])
+  user      User      @relation(fields: [userId], references: [id])
+  createdAt DateTime  @default(now())
+}
+
+model Share {
+  id        String    @id @default(uuid())
+  userId    String
+  tipId     String
+  tip       Tip       @relation(fields: [tipId], references: [id])
+  user      User      @relation(fields: [userId], references: [id])
+  createdAt DateTime  @default(now())
+}

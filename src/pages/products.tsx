@@ -1,6 +1,6 @@
 // pages/products.tsx
 import React, { useEffect, useState } from 'react';
-import { Product } from '../services/productData';  // Adjust the import path if necessary
+import { Product } from './services/serviceInterface';  // Adjust the import path if necessary
 import styles from '../styles/Products.module.css';
 import Link from 'next/link';
 

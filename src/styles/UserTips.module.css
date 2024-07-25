@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    max-width: 50%;
+    margin: 0 auto;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.tip {
+    border: 1px solid #ddd;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.video {
+    width: 100%;
+    border-radius: 8px;
+    height: 80vh;
+}
+
+.actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+    width: 100%;
+    background: green;
+}

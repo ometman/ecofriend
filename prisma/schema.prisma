@@ -63,6 +63,9 @@ model Like {
   tip       Tip       @relation(fields: [tipId], references: [id])
   user      User      @relation(fields: [userId], references: [id])
   createdAt DateTime  @default(now())
+
+  @@unique([userId, tipId])
+
 }
 
 model Comment {
@@ -73,13 +76,18 @@ model Comment {
   tip       Tip       @relation(fields: [tipId], references: [id])
   user      User      @relation(fields: [userId], references: [id])
   createdAt DateTime  @default(now())
+
+  @@unique([userId, tipId])
 }
 
 model Share {
-  id        String    @id @default(uuid())
+  id        String   @id @default(uuid())
   userId    String
   tipId     String
-  tip       Tip       @relation(fields: [tipId], references: [id])
-  user      User      @relation(fields: [userId], references: [id])
-  createdAt DateTime  @default(now())
+  platform  String
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id])
+  tip  Tip  @relation(fields: [tipId], references: [id])
 }
+
